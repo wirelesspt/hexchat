@@ -8,7 +8,9 @@ It is meant to run as regular user with sudo permitions. If you are running debi
 # To install, type:
 
 wget https://raw.githubusercontent.com/wirelesspt/hexchat/master/hexchat_otr-deb_setup.sh
+
 chmod +x hexchat_otr-deb_setup.sh 
+
 ./hexchat_otr-deb_setup.sh
 
 
