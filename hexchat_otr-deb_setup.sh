@@ -1,4 +1,8 @@
-# This script will install hexchat and or otr automatically on gnu debian linux based distros like mint & ubuntu
+### Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2
+### Author: Miguel Vieira
+### This script will automatically install and or update hexchat and otr on gnu debian linux based distros like mint & ubuntu
+### Turns insecure private messages automatically into off the record encrypted conversations onde a query is started
+
 #!/bin/sh
 
 echo "This script will install/update hexchat and or otr automatically"
@@ -29,7 +33,7 @@ echo "If you are running debian based without sudo this script will fail"
 	./autogen.sh ; make -s
 	sudo make install
 
-# Copy server list to hexchat-otr:
+### Copy server list to hexchat-otr:
 cat <<EOT >> ~/.config/hexchat/servlist.conf
 N=WirelessPT
 E=UTF-8 (Unicode)
@@ -48,8 +52,30 @@ J=#wirelesspt
 J=#nixbits
 EOT
 
-#echo cmsv >> ~/.config/hexchat/notify.conf
+### Add devs to notify list
+echo cmsv >> ~/.config/hexchat/notify.conf
 
+### Prepare addons/otr_autostart.lua
+mkdir ~/.config/hexchat/addons
+
+cat <<EOT >> ~/.config/hexchat/addons/otr_autostart.lua
+-- Auto starts OTR query
+hexchat.register('OTRPM', '2', 'Automatically start otr upon /query nick')
+
+hexchat.hook_print('Open Context', function (args)
+        -- We only want queries
+        if hexchat.props['type'] ~= 3 then
+                return
+        end
+
+        -- Ignore empty tabs, znc queries, and scripting consoles
+        if not hexchat.get_info('channel'):match('^[%*%(>]') then
+                hexchat.command('chanopt -quiet /otr start')
+        end
+end)
+EOT
+
+### Ready to use Hexchat
         echo
         read -r -p "Start hexchat? [y/N]" response
         case $response in

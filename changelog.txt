@@ -1,0 +1,7 @@
+Thu Jan 26 22:34:33 EST 2017 - Version 2
+
+* Added: addons/otr_autostart.lua 
+
+Thu Jan 26 22:34:33 EST 2017 - Version 1
+
+* Frist script: auto install OTR
