@@ -4,4 +4,4 @@ Thu Jan 26 22:34:33 EST 2017 - Version 2
 
 Thu Jan 26 22:34:33 EST 2017 - Version 1
 
-* Frist script: auto install OTR
+* First script: auto install OTR

@@ -1,7 +1,7 @@
 ### Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2
 ### Author: Miguel Vieira
-### This script will automatically install and or update hexchat and otr on gnu debian linux based distros like mint & ubuntu
-### Turns insecure private messages automatically into off the record encrypted conversations onde a query is started
+### This script will automatically install and or update hexchat and otr on gnu debian linux based distros like mint & ubuntu.
+### Turns insecure private messages automatically into off the record encrypted conversations onde a query is started.
 
 #!/bin/sh
 
@@ -16,7 +16,8 @@ echo "If you are running debian based without sudo this script will fail"
         [yY][eE][sS]|[yY])
 
 	# Software and dependences needed:
-        sudo apt-get install hexchat gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev
+	sudo apt-update
+        sudo apt-get -y install hexchat gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev
 
 	# Check for old and or outdated hexchat-otr files:
         if [ hexchat-otr ]
