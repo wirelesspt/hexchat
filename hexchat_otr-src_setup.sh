@@ -1,14 +1,13 @@
-### Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
+### Revised: Wed Apr 12 21:44:55 EDT 2017 - Version 2.1
 ### Author: Miguel Vieira
-### This script will automatically install and or update hexchat and otr on gnu debian linux based distros like debian, mint, ubuntu, kali.
+### This script will automatically install and or update hexchat and otr on gnu gentoo linux based distros like gentoo, pentoo, sabayon, funtoo.
 ### Turns insecure private messages automatically into off the record encrypted conversations onde a query is started.
 
 #!/bin/sh
 
 echo "This script will install/update hexchat and or otr automatically"
-echo "It is made for gnu debian linux based distros like mint & ubuntu"
-echo "It is meant to run as regular user with sudo permissions"
-echo "If you are running debian based without sudo this script will fail"
+echo "It is made for gnu gentoo linux based distros like gentoo, pentoo, sabayon, funtoo"
+echo "It is meant to run as regular user with su access password"
 
         echo
         read -r -p "Are you sure ? [y/N]" response
@@ -16,8 +15,9 @@ echo "If you are running debian based without sudo this script will fail"
         [yY][eE][sS]|[yY])
 
 	# Software and dependences needed:
-	sudo apt-update
-        sudo apt-get -y install hexchat gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev
+	echo net-irc/hexchat ~amd64 >> /etc/portage/package.keywords/net-irc
+	echo net-irc/hexchat gtk libproxy plugin-checksum plugin-sysinfo plugins plugin-fishlim spell ssl >> /etc/portage/package.use/hexchat
+	emerge hexchat libotr
 
 	# Check for old and or outdated hexchat-otr files:
         if [ hexchat-otr ]
@@ -32,7 +32,9 @@ echo "If you are running debian based without sudo this script will fail"
         cd hexchat-otr
 	# compile the sources:
 	./autogen.sh ; make -s
-	sudo make install
+	echo
+	echo "Type your root password and then 'make install'"
+	su
 
 ### Copy server list to hexchat-otr:
 cat <<EOT >> ~/.config/hexchat/servlist.conf
