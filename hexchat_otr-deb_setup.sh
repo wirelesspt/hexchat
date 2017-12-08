@@ -17,7 +17,7 @@ echo "If you are running debian based without sudo this script will fail"
 
 	# Software and dependences needed:
 	sudo apt-update
-        sudo apt-get -y install hexchat gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev
+        sudo apt-get -y install hexchat hexchat-dev hexchat-lua gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev
 
 	# Check for old and or outdated hexchat-otr files:
         if [ hexchat-otr ]

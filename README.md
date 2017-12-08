@@ -12,12 +12,12 @@ gentoo, pentoo, sabayon, funtoo, mint, debian, ubuntu, kali
 Turns insecure private messages automatically into off the record encrypted conversations once a query is started 
 
 
-# To install on debian, ubuntu, mint, kali based distros that use sudo, copy and paste:
+# To install on debian, ubuntu, mint, kali based distros that use sudo. Copy and paste the code bellow.
 
  * wget https://raw.githubusercontent.com/wirelesspt/hexchat/master/hexchat_otr-deb_setup.sh
  * chmod +x hexchat_otr-deb_setup.sh ; ./hexchat_otr-deb_setup.sh
 
-# To install on gentoo, pentoo, sabayon, funtoo based distros that use sudo, copy and paste:
+# To install on gentoo, pentoo, sabayon, funtoo based distros. Copy and paste the code bellow.
 
  * wget https://raw.githubusercontent.com/wirelesspt/hexchat/master/hexchat_otr-src_setup.sh
  * chmod +x hexchat_otr-src_setup.sh ; ./hexchat_otr-src_setup.sh
