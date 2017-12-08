@@ -7,7 +7,7 @@ Revised: Thu Jan 26 22:34:33 EST 2017 - Version 2
 
 This script will automatically install and or update hexchat and otr on gnu debian and gentoo linux based distros like:
 
-gentoo, pentoo, sabayon, funtoo, mint, debian, ubuntu, kali
+gentoo, pentoo, sabayon, funtoo, mint, debian, ubuntu, kali, raspbian
 
 Turns insecure private messages automatically into off the record encrypted conversations once a query is started 
 
