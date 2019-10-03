@@ -2,11 +2,11 @@
 https://en.wikipedia.org/wiki/Off-the-Record_Messaging
 https://wirelesspt.net/wiki/hexchat
 
-# Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
-# Changelog:
-# - Update otr sources build code
-# - Update tor irc address and port
-# - Added hardened hexchat auto configuration for improved setup
+Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
+Changelog:
+ - Update otr sources build code
+ - Update tor irc address and port
+ - Added hardened hexchat auto configuration for improved setup
 
 Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
 Changelog:
