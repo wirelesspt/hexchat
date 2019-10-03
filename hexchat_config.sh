@@ -1,6 +1,10 @@
 
-# Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
 # Changelog:
+
+# Thu 04 Oct 2019 12:49:06 PM EDT version 3.1
+# - Script configuration corrections
+
+# Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
 # - Hardened hexchat auto configuration for improved setup
 
 

@@ -1,11 +1,14 @@
-# Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
 # Changelog:
+
+# Thu 04 Oct 2019 12:49:06 PM EDT version 3.1
+# - Script reconfiguration corrections
+
+# Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
 # - Update otr sources build code
 # - Update tor irc address and port
 # - Added hardened hexchat auto configuration for improved setup
 
-# Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
-# Changelog:
+# Thu Jan 26 22:14:35 EST 2017 - Version 2.1
 # - Initial development
 
 ###
@@ -49,7 +52,7 @@ echo "It is meant to run as regular user with su access password"
 	su -c 'ninja -C builddir install'
 
 ### Prepare addons/otr_autostart.lua
-mkdir ~/.config/hexchat/addons
+mkdir -p ~/.config/hexchat/addons
 
 cat <<EOT >> ~/.config/hexchat/addons/otr_autostart.lua
 -- Auto starts OTR query
