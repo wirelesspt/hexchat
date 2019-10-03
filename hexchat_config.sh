@@ -1,4 +1,9 @@
 
+# Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
+# Changelog:
+# - Hardened hexchat auto configuration for improved setup
+
+
 # Anonimize hexchat
 echo "Would you like to anonimize hexchat (as much as possible) to" 
 echo "prevent it to give information about itself to other parties"
@@ -32,6 +37,7 @@ echo 'type = 8'		>>					~/.config/hexchat/ignore.conf
 	esac
 
 # Amnesia keeps no records. No logs
+echo
 echo "Amnesia keeps no records. Avoid logging things."
 echo "Please say Yes. It is highly recomended!"
 
@@ -55,6 +61,7 @@ sed -i 's/url_grabber = 1/url_grabber = 0/g'			~/.config/hexchat/hexchat.conf
         esac
 
 # Optimize hexchat
+echo
 echo "The follwoing will optimize hexchat look and feel"
 echo "Say Yes. You can always change things later"
 
@@ -63,7 +70,7 @@ echo "Say Yes. You can always change things later"
         case $input in
         [yY][eE][sS]|[yY])
 
-# /set 
+# /set
 sed -i 's/gui_chanlist_minusers = 5/gui_chanlist_minusers = 1/g'   ~/.config/hexchat/hexchat.conf
 sed -i 's/gui_input_spell = 0/gui_input_spell = 1/g'		   ~/.config/hexchat/hexchat.conf
 sed -i 's/irc_servernotice = 0/irc_servernotice = 1/g'		   ~/.config/hexchat/hexchat.conf
@@ -83,6 +90,7 @@ sed -i 's/text_stripcolor_topic = 0/text_stripcolor_topic = 1/g'   ~/.config/hex
         esac
 
 # Use with Tor
+echo
 echo "Would you like to use hexchat with Tor? This is recomended"
 echo "It requires to have tor installed. You can say Yes now and install Tor right after"
 

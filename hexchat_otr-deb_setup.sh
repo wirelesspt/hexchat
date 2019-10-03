@@ -2,7 +2,7 @@
 # Changelog:
 # - Update otr sources build code
 # - Update tor irc address and port
-# - Added hexchat auto configuration for improved setup
+# - Added hardened hexchat auto configuration for improved setup
 
 # Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
 # Changelog:
