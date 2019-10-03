@@ -44,30 +44,8 @@ echo "If you are running debian based without sudo this script will fail"
 	# compile the sources:
 	sudo meson builddir ; ninja -C builddir ; ninja -C builddir install
 
-### Copy server list to hexchat-otr:
-cat <<EOT >> ~/.config/hexchat/servlist.conf
-N=WirelessPT
-E=UTF-8 (Unicode)
-F=127
-D=1
-S=irc.wirelesspt.net/6697
-J=#wirelesspt
-J=#nixbits
-
-N=WirelessPT Tor Hidden Server
-E=UTF-8 (Unicode)
-F=55
-D=0
-S=ycvrxhprsgkl3hvdymtogq4ukrpa3qwzbg3yfnbuipomviu2sscwyaid.onion/6697
-J=#wirelesspt
-J=#nixbits
-EOT
-
-### Add devs to notify list
-echo cmsv >> ~/.config/hexchat/notify.conf
-
 ### Prepare addons/otr_autostart.lua
-mkdir ~/.config/hexchat/addons
+mkdir -p ~/.config/hexchat/addons
 
 cat <<EOT >> ~/.config/hexchat/addons/otr_autostart.lua
 -- Auto starts OTR query
@@ -86,32 +64,23 @@ hexchat.hook_print('Open Context', function (args)
 end)
 EOT
 
-### Configure hexchat
-        wget https://raw.githubusercontent.com/wirelesspt/hexchat/master/hexchat_config.sh
-        chmod +x hexchat_config.sh
-        ./hexchat_config.sh
-
 ### Ready to use Hexchat
-        echo
-        read -r -p "Start hexchat? [y/N]" response
-        case $response in
-        [yY][eE][sS]|[yY])
+        echo "Starting hexchat...";
+        DISPLAY=:0.0 hexchat &
 
-	echo "Starting hexchat...";
-	DISPLAY=:0.0 hexchat &
-  	;;
-        *)
-	;;
-        esac
 echo
 echo "To start OTR open a chat windows with someone usin OTR and type /otr start";
 echo "To end conversation type /otr finish";
-echo "Check this out https://wirelesspt.net/wiki/Hexchat"
-        ;;
-        *)
-        echo
-        echo "Really ? Check this out: https://en.wikipedia.org/wiki/Off-the-Record_Messaging"
-        echo
-        ;;
-        esac
+echo "https://wirelesspt.net/wiki/Hexchat"
+echo "https://en.wikipedia.org/wiki/Off-the-Record_Messaging"
+echo
+
+echo "If you want a hardened and more secure and private hexchat configuration"
+echo "copy and paste the following 2 lines on your terminal but only after"
+echo "having executed hexchat at least once"
+
+echo
+echo "wget https://raw.githubusercontent.com/wirelesspt/hexchat/master/hexchat_config.sh"
+echo "chmod +x hexchat_config.sh ; ./hexchat_config.sh"
+echo
 

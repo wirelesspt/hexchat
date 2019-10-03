@@ -4,6 +4,28 @@
 # - Hardened hexchat auto configuration for improved setup
 
 
+### Copy server list to hexchat-otr:
+cat <<EOT >> ~/.config/hexchat/servlist.conf
+N=WirelessPT
+E=UTF-8 (Unicode)
+F=127
+D=1
+S=irc.wirelesspt.net/6697
+J=#wirelesspt
+J=#nixbits
+
+N=WirelessPT Tor Hidden Server
+E=UTF-8 (Unicode)
+F=55
+D=0
+S=ycvrxhprsgkl3hvdymtogq4ukrpa3qwzbg3yfnbuipomviu2sscwyaid.onion/6697
+J=#wirelesspt
+J=#nixbits
+EOT
+
+### Add devs to notify list
+echo cmsv >> ~/.config/hexchat/notify.conf
+
 # Anonimize hexchat
 echo "Would you like to anonimize hexchat (as much as possible) to" 
 echo "prevent it to give information about itself to other parties"
