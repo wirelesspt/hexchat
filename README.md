@@ -1,9 +1,15 @@
 # OTR for Hexchat Linux
 https://en.wikipedia.org/wiki/Off-the-Record_Messaging
+https://wirelesspt.net/wiki/hexchat
 
-Revised: Wed Apr 12 21:44:55 EDT 2017 - Version 2.1
+Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 2.2
+Changelog:
+ - Update sources code
+ - Update tor irc address and port
 
-Revised: Thu Jan 26 22:34:33 EST 2017 - Version 2
+Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
+Changelog:
+ - Initial development
 
 This script will automatically install and or update hexchat and otr on gnu debian and gentoo linux based distros like:
 
@@ -24,9 +30,6 @@ Turns insecure private messages automatically into off the record encrypted conv
 
 # TODO
 * Better OTR support
-* Tor hidden services support
-* Hexchat hardening
-* Updated server list
 
 # Wish list:
 * Builtin Tor bundle

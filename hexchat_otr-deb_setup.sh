@@ -1,4 +1,15 @@
-### Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
+# Revised: Thu 03 Oct 2019 07:47:10 AM EDT - version 3.0
+# Changelog:
+# - Update otr sources build code
+# - Update tor irc address and port
+# - Added hexchat auto configuration for improved setup
+
+# Revised: Thu Jan 26 22:14:35 EST 2017 - Version 2.1
+# Changelog:
+# - Initial development
+
+###
+
 ### Author: Miguel Vieira
 ### This script will automatically install and or update hexchat and otr on gnu debian linux based distros like debian, mint, ubuntu, kali.
 ### Turns insecure private messages automatically into off the record encrypted conversations onde a query is started.
@@ -16,8 +27,8 @@ echo "If you are running debian based without sudo this script will fail"
         [yY][eE][sS]|[yY])
 
 	# Software and dependences needed:
-	sudo apt-update
-        sudo apt-get -y install hexchat hexchat-dev hexchat-lua gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev
+	sudo apt-get update
+        sudo apt-get -y install hexchat hexchat-dev hexchat-lua gcc make pkg-config libglib2.0-dev git automake autoconf-archive libtool glibc-source libcrypt-gcrypt-perl libotr5-dev meson ninja-build appstream-util
 
 	# Check for old and or outdated hexchat-otr files:
         if [ hexchat-otr ]
@@ -31,8 +42,7 @@ echo "If you are running debian based without sudo this script will fail"
 	git clone https://github.com/TingPing/hexchat-otr
         cd hexchat-otr
 	# compile the sources:
-	./autogen.sh ; make -s
-	sudo make install
+	sudo meson builddir ; ninja -C builddir ; ninja -C builddir install
 
 ### Copy server list to hexchat-otr:
 cat <<EOT >> ~/.config/hexchat/servlist.conf
@@ -44,11 +54,11 @@ S=irc.wirelesspt.net/6697
 J=#wirelesspt
 J=#nixbits
 
-N=WirelessPT Tor
+N=WirelessPT Tor Hidden Server
 E=UTF-8 (Unicode)
 F=55
 D=0
-S=2rfrzlrbwvbvlxpo.onion/6667
+S=ycvrxhprsgkl3hvdymtogq4ukrpa3qwzbg3yfnbuipomviu2sscwyaid.onion/6697
 J=#wirelesspt
 J=#nixbits
 EOT
@@ -75,6 +85,11 @@ hexchat.hook_print('Open Context', function (args)
         end
 end)
 EOT
+
+### Configure hexchat
+        wget https://raw.githubusercontent.com/wirelesspt/hexchat/master/hexchat_config.sh
+        chmod +x hexchat_config.sh
+        ./hexchat_config.sh
 
 ### Ready to use Hexchat
         echo
